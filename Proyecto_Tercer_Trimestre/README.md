@@ -22,7 +22,7 @@
 
 | equipar | |
 | ----- | -----| 
-| ****codpersonaje*** | varchar2 (3) |
+| ***codpersonaje*** | varchar2 (3) |
 | ***codarma*** | varchar2 (3) |
 | **fecha** | date |
 
