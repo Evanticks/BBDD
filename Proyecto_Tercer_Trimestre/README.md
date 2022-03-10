@@ -1,10 +1,12 @@
 | personaje | | 
-|:------:|:------:|
+|------|------|
 | codpersonaje | varchar2 (3) | Primay Key |
 | nombre | varchar2 (15) |
 | altura | number (3,2) |
 | peso | number (3) |
 | raza | varchar2 (10) |
+
+
 
 | armas | |
 | ----- | -----| 
@@ -15,6 +17,8 @@
 | inteligencia | number (2) |
 | rareza | varchar2 (10) |
 | nivel | number (2) |
+
+
 
 | equipar | |
 | ----- | -----| 
