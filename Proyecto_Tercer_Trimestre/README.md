@@ -1,5 +1,5 @@
 | personaje | | 
-|------|------|
+|:------:|:------:|
 | codpersonaje | varchar2 (3) | Primay Key |
 | nombre | varchar2 (15) |
 | altura | number (3,2) |
