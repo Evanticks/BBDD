@@ -33,6 +33,7 @@
 | nombre | varchar2 (3) |
 | habitat | varchar2 (20) |
 | clima | varchar2 (10) |
+| temperatura | number (2) |
 
 
 | Tesoros | |
