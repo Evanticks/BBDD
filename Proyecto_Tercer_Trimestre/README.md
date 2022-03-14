@@ -30,6 +30,7 @@
 | mapa | |
 | ----- | -----| 
 | **codmapa** | varchar2 (3) |
+| ***codpersonaje*** | varchar2 (3) |
 | nombre | varchar2 (3) |
 | habitat | varchar2 (20) |
 | clima | varchar2 (10) |
@@ -40,7 +41,6 @@
 |----- | -----| 
 | **codtesoro** | varchar 2 (3) |
 | ***codmapa*** | varchar2 (3) |
-| ***codpersonaje*** | varchar2 (3) |
 | nombre | varchar2 (3) |
 | antiguedad | date |
 | rareza | varchar2 (10)|
