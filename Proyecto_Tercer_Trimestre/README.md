@@ -2,16 +2,16 @@
 
 | personaje | | 
 |------|------|
-| **codpersonaje** | varchar2 (3) |
+| **codpersonaje** | varchar2 (3) | h
 | nombre | varchar2 (15) |
 | altura | number (3,2) |
 | peso | number (3) |
 | raza | varchar2 (10) |
 
 
-| armas | |
-| ----- | -----| 
-| **codarma** | varchar2 (3) | Primary Key
+| armas | | |
+| ----- | -----| ----- |
+| **codarma** | varchar2 (3) |
 | nombre | varchar2 (15) |
 | fuerza |  number (2) |
 | destreza | number (2)|
@@ -40,6 +40,7 @@
 |----- | -----| 
 | **codtesoro** | varchar 2 (3) |
 | ***codmapa*** | varchar2 (3) |
+| ***codpersonaje*** | varchar2 (3) |
 | nombre | varchar2 (3) |
 | antiguedad | date |
 | rareza | varchar2 (10)|
