@@ -36,8 +36,8 @@
 | antiguedad | date | No más de 2000, mostrar solo el año.
 | rareza | varchar2 (10)|
 
-| equipar | | |
-| ----- | -----| ----- |
+| equipar | |
+| ----- | -----|
 | ***codpersonaje*** | varchar2 (9) |
 | ***codarma*** | varchar2 (3) |
 | **fecha** | date |

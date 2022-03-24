@@ -1,4 +1,7 @@
 
+CONNECT SCOTT
+TIGER
+
 CREATE TABLE personaje (
 codpersonaje varchar2 (3),
 nombre varchar2 (15),
