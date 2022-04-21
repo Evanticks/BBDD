@@ -51,7 +51,7 @@ CREATE TABLE ubicar (
 codpersonaje varchar2 (3),
 codmapa varchar2 (3),
 fecha date
-CONSTRAINT pk_ubicar PRIMARY KEY (codpersonaje, codmapa),
+CONSTRAINT pk_ubicar PRIMARY KEY (codpersonaje, codmapa)
 );
 
 

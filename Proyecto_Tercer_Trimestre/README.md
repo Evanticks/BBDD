@@ -49,3 +49,9 @@
 |**fecha** | date | Que la fecha esté entre 2000-2022
 
 <span style="text-decoration:underline">codpersonaje</span>
+
+
+
+
+
+
