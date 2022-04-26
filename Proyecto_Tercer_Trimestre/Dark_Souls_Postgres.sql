@@ -106,17 +106,30 @@ ALTER TABLE personaje DROP CONSTRAINT ck_codpersonaje;
 (No se puede desactivar la restricciones en Postgres)
 
 ---Consultas sencillas
+------Muestra todas las armas.
 Select * from armas;
+------Muestra los nombres d elos personajes.
 Select nombre from personaje;
+------Muestra la suma de los niveles de las armas.
 select sum(nivel) from armas;
 
+---Vistas
+------Lista de armas.
+CREATE VIEW nombrearma
+select nombre from armas;
+------Antiguedad de los tesoros.
+create view antiguedad_tesoro
+select antiguedad from tesoro
+
 ---Subconsultas
-
-
+------Muestra los nombres de los personajes que tengan la espada 'Espada Larga'
 Select nombre from personaje 
 where codpersonaje in 
 (select codpersonaje from equipar where codarma in 
 (select codarma from armas where nombre = 'Espada Larga'));
-
-Select nombre,antiguedad from tesoros
+------Muestra el nombre y la antiguedad del tesoro que enncuentra el personaje 'Artorias'
+Select nombre,antiguedad from tesoro 
+where codtesoro=(select codtesoro from mapa where codmapa 
+=(select codmapa from ubicar where codpersonaje
+=(select codpersonaje from personaje where nombre='Artorias')));
 
