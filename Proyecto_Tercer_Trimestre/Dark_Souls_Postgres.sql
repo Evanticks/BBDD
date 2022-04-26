@@ -133,3 +133,8 @@ where codtesoro=(select codtesoro from mapa where codmapa
 =(select codmapa from ubicar where codpersonaje
 =(select codpersonaje from personaje where nombre='Artorias')));
 
+---Combinación de tablas (Join)
+------Muestra todo acerca de las tablas mapa y tesoro.
+select * from mapa,tesoro where tesoro.codtesoro=mapa.codtesoro;
+------Muestra los nombres de los mapas y los tesoros empleando alias.
+select m.nombre,t.nombre from mapa m,tesoro t where t.codtesoro=m.codtesoro;
