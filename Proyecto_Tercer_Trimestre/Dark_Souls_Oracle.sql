@@ -52,7 +52,7 @@ codpersonaje varchar2 (3),
 codmapa varchar2 (3),
 fecha date,
 CONSTRAINT pk_ubicar PRIMARY KEY (codpersonaje, codmapa),
-CONSTRAINT ck_fecha CHECK (to_number(fecha,'YYYY') BETWEEN 2000 AND 2022)
+CONSTRAINT ck_date CHECK (to_number(fecha,'YYYY') BETWEEN 2000 AND 2022)
 );
 
 
