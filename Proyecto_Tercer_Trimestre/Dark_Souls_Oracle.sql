@@ -45,7 +45,7 @@ temperatura number (2),
 CONSTRAINT pk_codmapa PRIMARY KEY (codmapa),
 CONSTRAINT fk_codtesoro FOREIGN KEY (codtesoro) REFERENCES tesoros (codtesoro),
 CONSTRAINT ck_clima CHECK (clima in ('Lluvioso','Soleado','Nublado')),
-CONSTRAINT ck_codmapa CHECK REGEXP_LIKE ('^0-.*$')
+CONSTRAINT ck_codmapa CHECK (codmapa REGEXP_LIKE(codmapa= ('^0-.*$'))
 );
 
 
