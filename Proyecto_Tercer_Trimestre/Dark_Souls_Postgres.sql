@@ -115,11 +115,11 @@ select sum(nivel) from armas;
 
 ---Vistas
 ------Lista de armas.
-CREATE VIEW nombrearma
+CREATE VIEW nombrearma as
 select nombre from armas;
 ------Antiguedad de los tesoros.
-create view antiguedad_tesoro
-select antiguedad from tesoro
+create view antiguedad_tesoro as
+select antiguedad from tesoro;
 
 ---Subconsultas
 ------Muestra los nombres de los personajes que tengan la espada 'Espada Larga'
