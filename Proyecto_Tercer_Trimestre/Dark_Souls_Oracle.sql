@@ -8,7 +8,7 @@ altura number (3,2),
 peso number (3),
 raza varchar2 (10),
 CONSTRAINT pk_codpersonaje PRIMARY KEY (codpersonaje),
-CONSTRAINT ck_codpersonaje CHECK REGEXP_LIKE(codpersonaje,'^1.*$')
+CONSTRAINT ck_codpersonaje CHECK (REGEXP_LIKE(codpersonaje,'^1.*$'))
 );
 EN ORACLE: REGEXP_LIKE ()
 EN POSTGRES: SIMILAR TO ()
