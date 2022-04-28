@@ -29,7 +29,7 @@ nombre varchar2 (3),
 antiguedad date,
 rareza varchar2 (10),
 CONSTRAINT pk_codtesoro PRIMARY KEY (codtesoro),
-CONSTRAINT ck_antiguedad CHECK (to_char(antiguedad,'YYYY') < 2000)
+CONSTRAINT ck_antiguedad CHECK (to_number(antiguedad,'YYYY') < 2000)
 );
 
 
@@ -52,7 +52,7 @@ codpersonaje varchar2 (3),
 codmapa varchar2 (3),
 fecha date,
 CONSTRAINT pk_ubicar PRIMARY KEY (codpersonaje, codmapa),
-CONSTRAINT ck_fecha CHECK (to_char(fecha,'YYYY')) BETWEEN 2000 AND 2022)
+CONSTRAINT ck_fecha CHECK (to_number(fecha,'YYYY') BETWEEN 2000 AND 2022)
 );
 
 
