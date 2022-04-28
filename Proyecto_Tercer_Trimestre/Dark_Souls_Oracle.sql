@@ -10,8 +10,6 @@ raza varchar2 (10),
 CONSTRAINT pk_codpersonaje PRIMARY KEY (codpersonaje),
 CONSTRAINT ck_codpersonaje CHECK (REGEXP_LIKE(codpersonaje,'^1.*$'))
 );
-EN ORACLE: REGEXP_LIKE ()
-EN POSTGRES: SIMILAR TO ()
 
 CREATE TABLE armas (
 codarma varchar2 (3),
@@ -45,7 +43,7 @@ temperatura number (2),
 CONSTRAINT pk_codmapa PRIMARY KEY (codmapa),
 CONSTRAINT fk_codtesoro FOREIGN KEY (codtesoro) REFERENCES tesoros (codtesoro),
 CONSTRAINT ck_clima CHECK (clima in ('Lluvioso','Soleado','Nublado')),
-CONSTRAINT ck_codmapa CHECK (codmapa REGEXP_LIKE(codmapa= ('^0-.*$'))
+CONSTRAINT ck_codmapa CHECK (REGEXP_LIKE(codmapa,'^0-.*$'))
 );
 
 
