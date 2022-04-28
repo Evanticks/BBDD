@@ -25,11 +25,11 @@ CONSTRAINT pk_armas PRIMARY KEY (codarma)
 
 CREATE TABLE tesoro (
 codtesoro varchar2 (3),
-nombre varchar2 (3),
+nombre varchar2 (20),
 antiguedad date,
 rareza varchar2 (10),
 CONSTRAINT pk_codtesoro PRIMARY KEY (codtesoro),
-CONSTRAINT ck_antiguedad CHECK (to_number(antiguedad,'YYYY') < 2000)
+CONSTRAINT ck_antiguedad CHECK (to_char(to_number(antiguedad,'YYYY')) < 2000)
 );
 
 
@@ -81,10 +81,10 @@ insert into equipar values ('101','002',to_date('2011/06/03','YYYY/MM/DD'));
 insert into equipar values ('103','002',to_date('2011/09/02','YYYY/MM/DD'));
 insert into equipar values ('101','006',to_date('2011/08/03','YYYY/MM/DD'));
 insert into equipar values ('102','004',to_date('2011/07/01','YYYY/MM/DD'));
-insert into tesoro values ('001','Arma perdida',to_date('1008/7/04','YYYY/MM/DD'),'S');
-insert into tesoro values ('002','Collar Antiguo',to_date('1795/3/09','YYYY/MM/DD'),'C');
-insert into tesoro values ('003','Perla Negra',to_date('1328/7/15','YYYY/MM/DD'),'A');
-insert into tesoro values ('004','Tomo 4',to_date('1548-7-04','YYYY/MM/DD'),'B');
+insert into tesoro values ('001','Arma perdida',to_date('1008/07/04','YYYY/MM/DD'),'S');
+insert into tesoro values ('002','Collar Antiguo',to_date('1795/03/09','YYYY/MM/DD'),'C');
+insert into tesoro values ('003','Perla Negra',to_date('1328/07/15','YYYY/MM/DD'),'A');
+insert into tesoro values ('004','Tomo 4',to_date('1548/07/04','YYYY/MM/DD'),'B');
 insert into mapa values ('0-1','001','Terreno pantanoso','Bosque','Lluvioso',18);
 insert into mapa values ('0-2','003','Cumbre sinuosa','Montaña','Nublado',5);
 insert into mapa values ('0-3','002','Mar de Azor','Mar','Lluvioso',20);
