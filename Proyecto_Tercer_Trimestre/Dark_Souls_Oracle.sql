@@ -50,7 +50,7 @@ CONSTRAINT ck_codmapa CHECK (REGEXP_LIKE(codmapa,'^0-.*$'))
 CREATE TABLE ubicar (
 codpersonaje varchar2 (3),
 codmapa varchar2 (3),
-fecha date
+fecha date,
 CONSTRAINT pk_ubicar PRIMARY KEY (codpersonaje, codmapa),
 CONSTRAINT ck_fecha CHECK (to_char(fecha,'YYYY')) BETWEEN 2000 AND 2022)
 );
