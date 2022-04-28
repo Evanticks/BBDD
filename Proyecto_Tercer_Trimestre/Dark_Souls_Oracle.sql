@@ -41,7 +41,7 @@ habitat varchar2 (20),
 clima varchar2 (10),
 temperatura number (2),
 CONSTRAINT pk_codmapa PRIMARY KEY (codmapa),
-CONSTRAINT fk_codtesoro FOREIGN KEY (codtesoro) REFERENCES tesoros (codtesoro),
+CONSTRAINT fk_codtesoro FOREIGN KEY (codtesoro) REFERENCES tesoro (codtesoro),
 CONSTRAINT ck_clima CHECK (clima in ('Lluvioso','Soleado','Nublado')),
 CONSTRAINT ck_codmapa CHECK (REGEXP_LIKE(codmapa,'^0-.*$'))
 );
