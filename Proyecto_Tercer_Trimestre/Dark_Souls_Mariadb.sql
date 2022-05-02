@@ -102,10 +102,52 @@ commit;
 
 
 
+---Consultas sencillas
+------Muestra todas las armas.
+Select * from armas;
+------Muestra los nombres d elos personajes.
+Select nombre from personaje;
+------Muestra la suma de los niveles de las armas.
+select sum(nivel) from armas;
 
+---Vistas
+------Lista de armas.
+CREATE VIEW nombrearma as
+select nombre from armas;
+------Antiguedad de los tesoros.
+create view antiguedad_tesoro as
+select antiguedad from tesoro;
 
+---Subconsultas
+------Muestra los nombres de los personajes que tengan la espada 'Espada Larga'
+Select nombre from personaje 
+where codpersonaje in 
+(select codpersonaje from equipar where codarma in 
+(select codarma from armas where nombre = 'Espada Larga'));
+------Muestra el nombre y la antiguedad del tesoro que enncuentra el personaje 'Artorias'
+Select nombre,antiguedad from tesoro 
+where codtesoro=(select codtesoro from mapa where codmapa 
+=(select codmapa from ubicar where codpersonaje
+=(select codpersonaje from personaje where nombre='Artorias')));
 
-
-
-alter table equipar add CONSTRAINT FK_armasequipar FOREIGN KEY (codarma) REFERENCES armas (codarma);
-alter table equipar add CONSTRAINT FK_personequipar FOREIGN KEY (codpersonaje) REFERENCES personaje (codpersonaje);
+---Combinación de tablas (Join)
+------Muestra todo acerca de las tablas mapa y tesoro.
+select * from mapa,tesoro where tesoro.codtesoro=mapa.codtesoro;
+------Muestra los nombres de los mapas y los tesoros empleando alias.
+select m.nombre,t.nombre from mapa m,tesoro t where t.codtesoro=m.codtesoro;
+---Inserción de registros. Consultas de datos anexados.
+INSERT INTO personaje (SELECT '104','Ornstein',altura,peso,raza from personaje where nombre = 'Artorias');
+---Modificación de registros. Consultas de actualización.
+UPDATE armas set nivel =(select max(nivel) from armas);
+---Borrado de registros. Consultas de eliminación.
+delete from mapa where nombre= 'Terreno pantanoso';
+---Group by y having
+select raza, count (*) from personaje group by raza having count (*)=1;
+---Outer joins. Combinaciones externas.
+select nombre from personaje left join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
+select nombre from armas left join equipar on armas.codarma=equipar.codarma group by nombre order by nombre desc;
+---Consultas con operadores de conjuntos.
+select nombre from personaje union select nombre from tesoro;
+select count (*) from personaje union select count (*) from armas;
+---Subconsultas correlacionadas.
+select * from mapa where temperatura = (select max(temperatura) from mapa where codmapa= mapa.codmapa);
