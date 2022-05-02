@@ -33,7 +33,7 @@
 | ----- | -----| ----- |
 | **codtesoro** | varchar 2 (3) |
 | nombre | varchar2 (3) |
-| antiguedad | date | No más de 2000, mostrar solo el año.
+| antiguedad | date | No más de 2000
 | rareza | varchar2 (10)|
 
 | equipar | |
@@ -48,7 +48,6 @@
 | ***codmapa*** | varchar2 (3) |
 |**fecha** | date | Que la fecha esté entre 2000-2022
 
-<span style="text-decoration:underline">codpersonaje</span>
 
 
 

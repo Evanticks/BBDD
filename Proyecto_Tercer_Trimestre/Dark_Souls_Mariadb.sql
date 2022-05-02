@@ -100,8 +100,13 @@ insert into ubicar values ('102','0-2','2015-7-06');
 insert into ubicar values ('103','0-3','2008-2-13');
 commit;
 
-
-
+ALTER TABLE personaje constraint ck_nombre CHECK (nombre REGEXP '^[A-Z][a-z]*');
+ALTER TABLE personaje DROP CONSTRAINT ck_nombre;
+DISABLE KEYS;
+o bien desactivar momentáneamente las claves
+set foreign_key_checks =0;
+y para activar de nuevo
+set foreign_key_checks =1;
 ---Consultas sencillas
 ------Muestra todas las armas.
 Select * from armas;
@@ -142,9 +147,9 @@ UPDATE armas set nivel =(select max(nivel) from armas);
 ---Borrado de registros. Consultas de eliminación.
 delete from mapa where nombre= 'Terreno pantanoso';
 ---Group by y having
-select raza, count (*) from personaje group by raza having count (*)=1;
+select raza, count(*) from personaje group by raza having count(*)=1;
 ---Outer joins. Combinaciones externas.
-select nombre from personaje left join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
+select nombre from personaje right join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
 select nombre from armas left join equipar on armas.codarma=equipar.codarma group by nombre order by nombre desc;
 ---Consultas con operadores de conjuntos.
 select nombre from personaje union select nombre from tesoro;

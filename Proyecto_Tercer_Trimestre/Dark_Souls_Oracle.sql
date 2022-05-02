@@ -94,12 +94,10 @@ insert into ubicar values ('102','0-2',to_date('2015/7/06','YYYY/MM/DD'));
 insert into ubicar values ('103','0-3',to_date('2008/2/13','YYYY/MM/DD'));
 commit;
 
-
-drop database "SOULS";
 ---Añadir y borrar restricciones
 ALTER TABLE personaje add CONSTRAINT ck_codpersonaje CHECK (codpersonaje ~ '^1.*$');
 ALTER TABLE personaje DROP CONSTRAINT ck_codpersonaje;
-(No se puede desactivar la restricciones en Postgres)
+ALTER TABLE personaje disable CONSTRAINT ck_codpersonaje;
 
 ---Consultas sencillas
 ------Muestra todas las armas.
@@ -143,7 +141,7 @@ delete from mapa where nombre= 'Terreno pantanoso';
 ---Group by y having
 select raza, count (*) from personaje group by raza having count (*)=1;
 ---Outer joins. Combinaciones externas.
-select nombre from personaje left join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
+select nombre from personaje right join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
 select nombre from armas left join equipar on armas.codarma=equipar.codarma group by nombre order by nombre desc;
 ---Consultas con operadores de conjuntos.
 select nombre from personaje union select nombre from tesoro;

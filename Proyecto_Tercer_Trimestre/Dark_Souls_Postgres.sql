@@ -99,7 +99,7 @@ insert into ubicar values ('103','0-3','2008-2-13');
 commit;
 
 
-drop database "SOULS";
+
 ---Añadir y borrar restricciones
 ALTER TABLE personaje add CONSTRAINT ck_codpersonaje CHECK (codpersonaje ~ '^1.*$');
 ALTER TABLE personaje DROP CONSTRAINT ck_codpersonaje;
