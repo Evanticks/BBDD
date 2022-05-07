@@ -107,6 +107,13 @@ o bien desactivar momentáneamente las claves
 set foreign_key_checks =0;
 y para activar de nuevo
 set foreign_key_checks =1;
+
+
+---Modificación
+alter table personaje add column constitucion varchar(10);
+update personaje set constitucion = 'delgado' where nombre = 'Artorias';
+
+
 ---Consultas sencillas
 ------Muestra todas las armas.
 Select * from armas;

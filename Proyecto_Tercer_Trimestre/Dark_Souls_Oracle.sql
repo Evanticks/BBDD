@@ -99,6 +99,11 @@ ALTER TABLE personaje add CONSTRAINT ck_codpersonaje CHECK (codpersonaje ~ '^1.*
 ALTER TABLE personaje DROP CONSTRAINT ck_codpersonaje;
 ALTER TABLE personaje disable CONSTRAINT ck_codpersonaje;
 
+---Modificación
+alter table personaje add column constitucion varchar(10);
+update personaje set constitucion = 'delgado' where nombre = 'Artorias';
+
+
 
 ---Consultas sencillas
 ------Muestra todas las armas.
@@ -163,7 +168,7 @@ select * from mapa where temperatura = (select max(temperatura) from mapa where 
 select UPPER(nombre) from personaje where codpersonaje = '102';
 ---Expresión en fecha
 ---Muestra los tesoros con la antiguedad del mes de Julio.
-select * from tesoro where MONTH(antiguedad)=7;
+select nombre,antiguedad from tesoro where to_char(antiguedad,'MM')=7;
 ---Distinct y alias.
 ---Cambia el nombre de la columna y haz que no se repitan, ordenado alfabéticamente.
 select distinct raza,altura as datos from personaje order by raza;
