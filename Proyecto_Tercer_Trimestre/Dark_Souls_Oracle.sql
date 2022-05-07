@@ -100,7 +100,7 @@ ALTER TABLE personaje DROP CONSTRAINT ck_codpersonaje;
 ALTER TABLE personaje disable CONSTRAINT ck_codpersonaje;
 
 ---Modificación
-alter table personaje add column constitucion varchar(10);
+alter table personaje add constitucion varchar(10);
 update personaje set constitucion = 'delgado' where nombre = 'Artorias';
 
 
