@@ -134,18 +134,36 @@ select * from mapa,tesoro where tesoro.codtesoro=mapa.codtesoro;
 ------Muestra los nombres de los mapas y los tesoros empleando alias.
 select m.nombre,t.nombre from mapa m,tesoro t where t.codtesoro=m.codtesoro;
 ---Inserción de registros. Consultas de datos anexados.
+------Inserta un nuevo registro en personaje donde la altura,peso y raza sean las mismas que la de 'Artorias'. 
 INSERT INTO personaje (SELECT '104','Ornstein',altura,peso,raza from personaje where nombre = 'Artorias');
 ---Modificación de registros. Consultas de actualización.
+------Actualiza el nivel de las armas, de manera que todas tengan el nivel máximo.
 UPDATE armas set nivel =(select max(nivel) from armas);
 ---Borrado de registros. Consultas de eliminación.
+------Borra elregistro de la tabla mapa donde el el nombre sea 'Terreno pantanoso'.
 delete from mapa where nombre= 'Terreno pantanoso';
 ---Group by y having
+------Selecciona la raza y cuenta agrupando por raza donde el conteo sea igual a 1.
 select raza, count (*) from personaje group by raza having count (*)=1;
 ---Outer joins. Combinaciones externas.
+------Selecciona el nombre de los personajes y las coincidencias de ubicar.
 select nombre from personaje right join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
+------Selecciona el nombre de las armas y las coincidencias en equipar donde esté agrupado por el nombre y orden descendente.
 select nombre from armas left join equipar on armas.codarma=equipar.codarma group by nombre order by nombre desc;
 ---Consultas con operadores de conjuntos.
+------Muestra el nombre de los personajes y nombres de tesoro.
 select nombre from personaje union select nombre from tesoro;
+------Muestra el conteo de los personajes y las armas.
 select count (*) from personaje union select count (*) from armas;
 ---Subconsultas correlacionadas.
+------Selecciona todo de mapa donde la temperatura sea la máxima de esa misma tabla.
 select * from mapa where temperatura = (select max(temperatura) from mapa where codmapa= mapa.codmapa);
+---Expresion de mayúsculas
+------Muestra el nombre del personaje con cod 102 en mayúsculas.
+select UPPER(nombre) from personaje where codpersonaje = '102';
+---Expresión en fecha
+---Muestra los tesoros con la antiguedad del mes de Julio.
+select * from tesoro where MONTH(antiguedad)=7;
+---Distinct y alias.
+---Cambia el nombre de la columna y haz que no se repitan, ordenado alfabéticamente.
+select distinct raza,altura as datos from personaje order by raza;
