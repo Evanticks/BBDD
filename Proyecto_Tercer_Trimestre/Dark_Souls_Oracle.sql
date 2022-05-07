@@ -99,6 +99,7 @@ ALTER TABLE personaje add CONSTRAINT ck_codpersonaje CHECK (codpersonaje ~ '^1.*
 ALTER TABLE personaje DROP CONSTRAINT ck_codpersonaje;
 ALTER TABLE personaje disable CONSTRAINT ck_codpersonaje;
 
+
 ---Consultas sencillas
 ------Muestra todas las armas.
 Select * from armas;
@@ -123,9 +124,9 @@ where codpersonaje in
 (select codarma from armas where nombre = 'Espada Larga'));
 ------Muestra el nombre y la antiguedad del tesoro que enncuentra el personaje 'Artorias'
 Select nombre,antiguedad from tesoro 
-where codtesoro=(select codtesoro from mapa where codmapa 
-=(select codmapa from ubicar where codpersonaje
-=(select codpersonaje from personaje where nombre='Artorias')));
+where codtesoro in (select codtesoro from mapa where codmapa 
+in (select codmapa from ubicar where codpersonaje
+in (select codpersonaje from personaje where nombre='Artorias')));
 
 ---Combinación de tablas (Join)
 ------Muestra todo acerca de las tablas mapa y tesoro.

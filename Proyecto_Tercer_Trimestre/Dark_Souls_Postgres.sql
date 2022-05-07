@@ -149,6 +149,8 @@ select raza, count (*) from personaje group by raza having count (*)=1;
 ---Outer joins. Combinaciones externas.
 select nombre from personaje left join ubicar on personaje.codpersonaje=ubicar.codpersonaje;
 select nombre from armas left join equipar on armas.codarma=equipar.codarma group by nombre order by nombre desc;
+---Full outer join.
+select * from armas full outer join equipar on armas.codarma=equipar.codarma;
 ---Consultas con operadores de conjuntos.
 select nombre from personaje union select nombre from tesoro;
 select count (*) from personaje union select count (*) from armas;
