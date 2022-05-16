@@ -175,4 +175,4 @@ select nombre,antiguedad from tesoro where to_char(antiguedad,'MM')=7;
 select distinct raza,altura as datos from personaje order by raza;
 ---Consulta de datos anexados múltiple
 insert into tesoro values 
-('005',select nombre from armas where destreza=10,select fecha from ubicar where codmapa='0-2',select rareza from armas where nivel=5);
+('005',(select nombre from armas where destreza=10),(select fecha from ubicar where codmapa='0-2'),(select rareza from armas where nivel=5));
