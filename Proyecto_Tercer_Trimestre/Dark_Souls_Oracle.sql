@@ -101,8 +101,9 @@ ALTER TABLE personaje disable CONSTRAINT ck_codpersonaje;
 
 ---Modificación
 alter table personaje add constitucion varchar(10);
+alter table armas add rompibilidad number (2);
 update personaje set constitucion = 'delgado' where nombre = 'Artorias';
-
+alter table 
 
 
 ---Consultas sencillas
@@ -172,3 +173,5 @@ select nombre,antiguedad from tesoro where to_char(antiguedad,'MM')=7;
 ---Distinct y alias.
 ---Cambia el nombre de la columna y haz que no se repitan, ordenado alfabéticamente.
 select distinct raza,altura as datos from personaje order by raza;
+---Consulta de datos anexados múltiple
+insert into tesoro values ('','','','')
